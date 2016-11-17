@@ -1,0 +1,19 @@
+{
+  "name": "tcclipe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wesleyyw8/tcc-do-lipe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wesleyyw8/tcc-do-lipe/issues"
+  },
+  "homepage": "https://github.com/wesleyyw8/tcc-do-lipe#readme"
+}
