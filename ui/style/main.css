@@ -1,8 +1,24 @@
 .tcc{
   margin-top: 10px;
 }
+.margin-top-10{
+  margin-top: 10px;
+}
+.logotipo{
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.imgtext{
+  font-weight: bold;
+  font-size: 26px;
+}
 
 .tcc .col{
   height: 34px;
   line-height: 34px;
+}
+.btnContainer{
+  margin-left:53%;
 }
