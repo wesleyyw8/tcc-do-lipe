@@ -11,7 +11,7 @@ var pool  =    mysql.createPool({
   host     : 'localhost',
   user     : 'root',
   password : '',
-  database : 'MOVIES_PROJECT',
+  database : 'dbmesaj',
   debug    :  false
 });
 
@@ -34,3 +34,6 @@ var router = express.Router();
 app.get('*', function(req, res) {
   res.sendfile('./ui/views/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 });
+
+var movies = require('./routes/movies');
+app.use('/movies', movies);
