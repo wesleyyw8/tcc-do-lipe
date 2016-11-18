@@ -9,6 +9,7 @@
    (	
       ID_AMB INT unsigned NOT NULL AUTO_INCREMENT, 
 	    NOME_AMB VARCHAR (150) NOT NULL,
+      key (NOME_AMB),
       PRIMARY KEY (ID_AMB)
    );
 
@@ -22,6 +23,7 @@ CREATE TABLE CLASSIFICACAO_ETARIA
    (  
     ID_CLASS INT unsigned NOT NULL AUTO_INCREMENT,
     NOME_CLASS VARCHAR (150) NOT NULL,
+    key (NOME_CLASS),
     PRIMARY KEY (ID_CLASS)
    ); 
 
@@ -34,6 +36,7 @@ CREATE TABLE MATERIA
    (  
     ID_MATERIA INT UNSIGNED NOT NULL AUTO_INCREMENT,
     NOME_MATERIA VARCHAR(150) NOT NULL,
+      key (NOME_MATERIA),
     PRIMARY KEY (ID_MATERIA)
    ); 
 
@@ -51,10 +54,11 @@ CREATE TABLE PORTE
    (  
     ID_PORTE INT UNSIGNED NOT NULL AUTO_INCREMENT,
     NOME_PORTE VARCHAR(150) NOT NULL,
+      key (NOME_PORTE),
     PRIMARY KEY (ID_PORTE)
-   ) 
+   ) ;
 Insert into PORTE (NOME_PORTE) values ('Pequeno');
-Insert into PORTE (NOME_PORTE) values ('Medio');
+Insert into PORTE (NOME_PORTE) values ('Médio');
 Insert into PORTE (NOME_PORTE) values ('Grande');
 Insert into PORTE (NOME_PORTE) values ('Indiferente');
 
@@ -62,6 +66,8 @@ CREATE TABLE TIPO
    (  
     ID_TIPO INT UNSIGNED NOT NULL AUTO_INCREMENT, 
     NOME_TIPO VARCHAR(150) NOT NULL,
+      key (NOME_TIPO),
+    primary KEY (ID_TIPO)
    );
 
 Insert into TIPO (NOME_TIPO) values ('Tabuleiro');
@@ -76,37 +82,20 @@ CREATE TABLE BRINCADEIRA
     NOME_BRINC VARCHAR(150) NOT NULL, 
     DESC_BRINC VARCHAR(4000) NOT NULL, 
     APLICACAO_BRINC VARCHAR(4000) NOT NULL, 
-    COD_AMB INT NOT NULL, 
-    COD_CLASS INT NOT NULL, 
-    COD_MAT INT NOT NULL, 
-    COD_TIPO INT NOT NULL, 
-    COD_PORTE INT NOT NULL,
-
+    AMB varchar(150) NOT NULL, 
+    CLASS varchar(150) NOT NULL, 
+    MAT varchar(150) NOT NULL, 
+    TIPO varchar(150) NOT NULL, 
+    PORTE varchar(150) NOT NULL,
     PRIMARY KEY(ID_BRINC),
-    INDEX (COD_AMB),
-    INDEX (COD_CLASS),
-    INDEX (COD_MAT),
-    INDEX (COD_TIPO),
-    INDEX (COD_PORTE),
-
-    FOREIGN KEY (COD_AMB)
-      REFERENCES AMBIENTE (ID_AMB),
-
-    FOREIGN KEY (COD_CLASS)
-      REFERENCES CLASSIFICACAO_ETARIA(ID_CLASS),
-
-    FOREIGN KEY (COD_MAT)
-      REFERENCES MATERIA(ID_MATERIA),
-
-    FOREIGN KEY (COD_TIPO)
-      refe
-
-
-
-
+    FOREIGN KEY (AMB) REFERENCES AMBIENTE (NOME_AMB),
+    FOREIGN KEY (CLASS) REFERENCES CLASSIFICACAO_ETARIA (NOME_CLASS),
+    FOREIGN KEY (MAT) REFERENCES MATERIA(NOME_MATERIA),
+    FOREIGN KEY (TIPO) REFERENCES TIPO(NOME_TIPO),
+    FOREIGN KEY (PORTE) REFERENCES PORTE(NOME_PORTE)
    );
-Insert into SYSTEM.BRINCADEIRA (ID_BRINC,NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,COD_AMB,COD_CLASS,COD_MAT,COD_TIPO,COD_PORTE) values ('2','Jogo dos Intervalos','Material
- 
+
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Jogo dos Intervalos','Material: 
 Molduras A e B
  
 Placas transparentes vermelhas e azuis
@@ -129,28 +118,28 @@ Anota-se os pontos e os times invertem os papéis.
 Pontuação
 1 ponto para cada intervalo representado corretamente (A e B)
 3 pontos para resposta correta final da operação (idêntica à apresentada no cartão)
-Vence o time com mais pontos quando todos os desafios tiverem sido abertos.','Promover maior assimilação da representação de intervalos reais e operações com os mesmos por meio de atividade lúdica.','1','3','4','1','4');
-Insert into SYSTEM.BRINCADEIRA (ID_BRINC,NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,COD_AMB,COD_CLASS,COD_MAT,COD_TIPO,COD_PORTE) values ('3','Hexágono Algébrico','Materiais: Um tabuleiro, dados numerados com faces (-2; -1; 0; 1; 2; 3), marcadores.
+Vence o time com mais pontos quando todos os desafios tiverem sido abertos.','Promover maior assimilação da representação de intervalos reais e operações com os mesmos por meio de atividade lúdica.','Interno','Médio','Conjuntos','Tabuleiro','Indiferente');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Hexágono Algébrico','Materiais: Um tabuleiro, dados numerados com faces (-2; -1; 0; 1; 2; 3), marcadores.
 
 1. Os jogadores decidem quem inicia o jogo (sugestão: par ou ímpar). Cada jogador lança o dado na sua vez, em seguida substitui, na primeira expressão algébrica do jogo que está na casa INICIO, o número que saiu no dado. Avança tantas casas quanto for o valor calculado. Caso o resultado da operação seja zero, permanece na mesma casa.
 2. Se com o resultado o marcador cair na casa vazia (sem expressão), o jogador deverá colocar seu marcador na casa anterior (onde contém uma expressão) e lá permanecerá até a próxima jogada.
 3. A partir da segunda rodada, o jogador deverá substituir o valor do dado na expressão da casa onde seu marcador se encontra. Sendo o resultado positivo, o jogador deverá avançar à quantidade de casas correspondente ao resultado da expressão. Sendo negativo, o jogador deverá voltar a quantidade de casas também correspondente ao resultado da expressão.
 4. O ganhador será o jogador que primeiro completar uma volta no tabuleiro. Para ganhar o jogo, é necessário tirar um número maior ou exato de casas para atingir o FIM do percurso.
-','Desenvolver habilidades envolvendo expressões algébricas e números inteiros.','1','2','5','1','1');
-Insert into SYSTEM.BRINCADEIRA (ID_BRINC,NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,COD_AMB,COD_CLASS,COD_MAT,COD_TIPO,COD_PORTE) values ('1','Batalha Naval de Ângulos','Este é um jogo para ser realizado em duplas, semelhante ao jogo batalha naval, no qual os alunos devem estimar as medidas dos ângulos para localizar um
+','Desenvolver habilidades envolvendo expressões algébricas e números inteiros.','Interno','Fundamental','Álgebra','Tabuleiro','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Batalha Naval de Ângulos','Este é um jogo para ser realizado em duplas, semelhante ao jogo batalha naval, no qual os alunos devem estimar as medidas dos ângulos para localizar um
  ponto.
 Cada jogador recebe um tabuleiro no qual deve marcar 12 embarcações que
  correspondem a 12 pontos.
 O tabuleiro com as marcações não pode ser visto pelo adversário.
 Portanto, (3,0º) e (3,360º) correspondem ao mesmo ponto no tabuleiro. Se julgarem necessário, os jogadores poderão usar o transferidor.
 O jogador deve informar seu adversário sobre o ponto atingido, dizendo “Afundou”, semo tiro acertou uma embarcação, e “Água”, se o tiro não acertou. O adversário então deve fazer uma marcação no ‘Campo Adversário’ registrando se o ponto questionado foi um acerto ou água.
-O vencedor é o primeiro que afundar toda a frota do adversário.','Relacionar os conceitos de ângulo e coordenadas do plano, assim como levar o aluno a perceber a ideia de ângulo como abertura, e estimular a estimativa como estratégia para que os alunos descubram as medidas dos ângulos.','1','2','1','1','1');
-Insert into SYSTEM.BRINCADEIRA (ID_BRINC,NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,COD_AMB,COD_CLASS,COD_MAT,COD_TIPO,COD_PORTE) values ('4','Velha das Funções','O jogo consiste em 9 cartas num tabuleiro, onde cada carta representa um tipo de função ao qual o aluno deverá resolver, estando o resultado correto o ponto fica para si, e uma peça, é colocada no tabuleiro; enquanto que, se ele errar, o adversário ganha a chance de colocar a sua própria peça no tabuleiro. Até que um dos dois complete uma coluna, linha ou diagonal com todas as suas peças durante o jogo, obtendo assim, uma velha como no jogo já conhecido.
+O vencedor é o primeiro que afundar toda a frota do adversário.','Relacionar os conceitos de ângulo e coordenadas do plano, assim como levar o aluno a perceber a ideia de ângulo como abertura, e estimular a estimativa como estratégia para que os alunos descubram as medidas dos ângulos.','Interno','Fundamental','Geometria','Tabuleiro','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Velha das Funções','O jogo consiste em 9 cartas num tabuleiro, onde cada carta representa um tipo de função ao qual o aluno deverá resolver, estando o resultado correto o ponto fica para si, e uma peça, é colocada no tabuleiro; enquanto que, se ele errar, o adversário ganha a chance de colocar a sua própria peça no tabuleiro. Até que um dos dois complete uma coluna, linha ou diagonal com todas as suas peças durante o jogo, obtendo assim, uma velha como no jogo já conhecido.
 ','Podemos definir equação como uma sentença matemática que possui igualdade entre duas expressões algébricas e uma ou mais variáveis, ou incógnitas (valores desconhecidos) que são expressadas por letras. Resolver uma equação é encontrar todos os valores possíveis para a incógnita que tornem a igualdade verdadeira.
-Objetivo do Jogo: O jogo tem por objetivo incentivar o aluno a verificar seus conhecimentos com funções, e ao mesmo tempo fazê-lo pensar sobre uma estratégia para vencer seu adversário num jogo da velha comum.','1','3','6','1','1');
-Insert into SYSTEM.BRINCADEIRA (ID_BRINC,NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,COD_AMB,COD_CLASS,COD_MAT,COD_TIPO,COD_PORTE) values ('5','Quadrado Mágico','Montar um tabuleiro em forma de jogo da velha e recortar numeros que possibilitem a realização da atividade, sugestão: 3, 5, 4, 9, 9, 8, 7, 2, 1
-Colocar as fichas no tabuleiro de tal forma que a soma das 3 linhas, das 3 colunas e das 2 diagonais seja igual a 15.','O quadrado mágico é uma atividade de tentativa e erro. Não é fácil, é desafiador. O jogo consiste em explorar as possibilidades e coordenar ao mesmo tempo, a soma das linhas, colunas e diagonais.','1','1','2','1','1');
-Insert into SYSTEM.BRINCADEIRA (ID_BRINC,NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,COD_AMB,COD_CLASS,COD_MAT,COD_TIPO,COD_PORTE) values ('6','Losango ímpar','Tabuleiro em formato de losango
+Objetivo do Jogo: O jogo tem por objetivo incentivar o aluno a verificar seus conhecimentos com funções, e ao mesmo tempo fazê-lo pensar sobre uma estratégia para vencer seu adversário num jogo da velha comum.','Interno','Médio','Funções','Tabuleiro','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Quadrado Mágico','Montar um tabuleiro em forma de jogo da velha e recortar numeros que possibilitem a realização da atividade, sugestão: 3, 5, 4, 9, 9, 8, 7, 2, 1
+Colocar as fichas no tabuleiro de tal forma que a soma das 3 linhas, das 3 colunas e das 2 diagonais seja igual a 15.','O quadrado mágico é uma atividade de tentativa e erro. Não é fácil, é desafiador. O jogo consiste em explorar as possibilidades e coordenar ao mesmo tempo, a soma das linhas, colunas e diagonais.','Interno','Primario','Aritmética','Tabuleiro','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Losango ímpar','Tabuleiro em formato de losango
 Peças numeradas de 1 a 8
 
 Regras.
@@ -162,8 +151,8 @@ O primeiro participante pega a primeira peça da pilha e escolhe um triângulo do 
 O próximo deve colocar a peça em uma das casas adjacentes a peça colocada anteriormente de modo a obter soma ímpar
 A cada jogada anota-se o número de pontos obtidos (soma dos números das duas últimas casas)
 O jogo acaba quando um dos participantes não puder colocar mais peças
-Ganha o jogo quem obtiver a maior soma.','Obter um número ímpar através da soma','1','1','2','1','1');
-Insert into SYSTEM.BRINCADEIRA (ID_BRINC,NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,COD_AMB,COD_CLASS,COD_MAT,COD_TIPO,COD_PORTE) values ('7','Números e Frações','Regras: O jogo é dividido em rodadas e cada uma delas possui 7 etapas.
+Ganha o jogo quem obtiver a maior soma.','Obter um número ímpar através da soma','Interno','Primario','Aritmética','Tabuleiro','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Números e Frações','Regras: O jogo é dividido em rodadas e cada uma delas possui 7 etapas.
 São necessários dois jogadores. Mas antes de começar é preciso iniciar a preparação:
 Cada Jogador embaralha seu próprio deck e, em seguida, compra 5 cartas. Feito isso, basta decidir de forma aleatória quem começa o jogo e seguir as etapas.
 1ª ETAPA: O primeiro jogador escolhe uma das cartas em sua mão e a joga, o segundo jogador pode optar por cancelar o efeito da carta jogada, descartando assim de sua mão uma carta do mesmo tipo da carta jogada e que possua um valor igual ou superior. Caso a carta jogada não tenha sido cancelada ela ativa seu efeito.
@@ -181,21 +170,12 @@ CARTAS DE FRAÇÃO: o efeito da carta de fração faz com que seu adversário tenha d
 valor para baixo, caso necessário). Para cada carta descartada desta maneira, o jogador que jogou a CARTA DE FRAÇÃO ganhará 1 PONTO por carta descartada.
 CARTAS DE PORCENTAGEM: o efeito desta carta faz com que seu adversário tenha de descartar aquela quantidade (porcentagem) de cartas de seu deck (sempre arredondando esse valor para baixo, caso necessário). Para cada carta descartada desta maneira, o jogador que jogou a CARTA DE PORCENTAGEM ganhará 2 PONTOS, por carta descartada.
 CARTAS +: o efeito desta carta faz com que quem a jogou selecione (aleatoriamente) uma quantidade de cartas de sua pilha de descarte iguais ao impresso na carta jogada
-e as coloque no fundo de seu deck (caso não haja cartas o suficiente, o jogador deverá retornar tantas quanto possível). Para cada carta retornada desta maneira, o jogador que a jogou a CARTA + ganhará 3 PONTOS por carta retornada para o deck.','O jogo tem por objetivo fazer com que o aluno aprenda e fixe o conceito de frações, em uma partida em que deverá utilizar as cartas em sua posse juntamente com uma estratégia própria para fazer mais pontos que seu oponente, antes que um dos baralhos acabe.','1','2','3','2','1');
-Insert into SYSTEM.BRINCADEIRA (ID_BRINC,NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,COD_AMB,COD_CLASS,COD_MAT,COD_TIPO,COD_PORTE) values ('8','Dorminhoco Matemático','O Regras do Jogo: Divisão dos alunos em grupos de quatro elementos. Esse é um jogo de cartas no qual primeiramente as cartas são embaralhadas e depois são divididas entre os participantes. Todos os alunos do grupo receberão três cartas e um receberá quatro cartas. O aluno que recebeu quatro cartas será quem iniciará o jogo. Atrás de 61 cada carta tem uma função, um zero da função e a representação de um gráfico, e uma das cartas tem a palavra “Dorminhoco”. Quem recebe esta carta tem que ficar uma rodada com ela. No momento que os alunos recebem as cartas devem analisar se a função, o zero e o gráfico estão corretos; se algum estiver errado, quando for sua vez de jogar você passa esta carta adiante. Quando você estiver formado o trio correto abaixa as cartas, o último que abaixar perde e é o Dorminhoco.','O jogo Dorminhoco Matemático consiste em uma atividade a qual contém cartas com funções, zeros da função e gráficos. O objetivo neste jogo é fazer com que os alunos encontrem o zero da função e gráfico referente a cada função dada. Neste jogo vamos trabalhar com os zeros e com gráficos envolvendo funções do 1º e do 2º grau.
-Objetivos: - calcular corretamente os zeros das funções do 1º e do 2º grau; - reconhecer os gráficos das funções.','1','2','6','2','1');
-Insert into SYSTEM.BRINCADEIRA (ID_BRINC,NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,COD_AMB,COD_CLASS,COD_MAT,COD_TIPO,COD_PORTE) values ('9','Soma 28','O(s) jogador(es) devem completar o quadrado utilizando todas as peças;
+e as coloque no fundo de seu deck (caso não haja cartas o suficiente, o jogador deverá retornar tantas quanto possível). Para cada carta retornada desta maneira, o jogador que a jogou a CARTA + ganhará 3 PONTOS por carta retornada para o deck.','O jogo tem por objetivo fazer com que o aluno aprenda e fixe o conceito de frações, em uma partida em que deverá utilizar as cartas em sua posse juntamente com uma estratégia própria para fazer mais pontos que seu oponente, antes que um dos baralhos acabe.','Interno','Fundamental','Frações','Cartas','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Dorminhoco Matemático','O Regras do Jogo: Divisão dos alunos em grupos de quatro elementos. Esse é um jogo de cartas no qual primeiramente as cartas são embaralhadas e depois são divididas entre os participantes. Todos os alunos do grupo receberão três cartas e um receberá quatro cartas. O aluno que recebeu quatro cartas será quem iniciará o jogo. Atrás de 61 cada carta tem uma função, um zero da função e a representação de um gráfico, e uma das cartas tem a palavra “Dorminhoco”. Quem recebe esta carta tem que ficar uma rodada com ela. No momento que os alunos recebem as cartas devem analisar se a função, o zero e o gráfico estão corretos; se algum estiver errado, quando for sua vez de jogar você passa esta carta adiante. Quando você estiver formado o trio correto abaixa as cartas, o último que abaixar perde e é o Dorminhoco.','O jogo Dorminhoco Matemático consiste em uma atividade a qual contém cartas com funções, zeros da função e gráficos. O objetivo neste jogo é fazer com que os alunos encontrem o zero da função e gráfico referente a cada função dada. Neste jogo vamos trabalhar com os zeros e com gráficos envolvendo funções do 1º e do 2º grau.
+Objetivos: - calcular corretamente os zeros das funções do 1º e do 2º grau; - reconhecer os gráficos das funções.','Interno','Médio','Funções','Cartas','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Soma 28','O(s) jogador(es) devem completar o quadrado utilizando todas as peças;
 Cada algarismo só pode surgir uma única vez no quadrado;
 Cada linha, coluna e diagonal deve totalizar a soma do número 28;
 Se alguma linha, coluna ou diagonal não totalizar a soma do número 28, o quadrado está errado e a peça deve ser trocada;
 O jogo termina com o preenchimento de todas as dezesseis casas do tabuleiro.
-De quantas maneiras diferentes é possível distribuir os números na tabela 4x4 mantendo a soma 28?','Distribuir os algarismos 2, 5, 6, 8 e 9 na tabela 4x4, de modo a manter a soma 28 no quadrado, isto é, a soma das linhas, das colunas e das diagonais seja sempre 28.','1','1','2','1','1');
-
-CREATE TABLE cats
-(
-  id              INT unsigned NOT NULL AUTO_INCREMENT, # Unique ID for the record
-  name            VARCHAR(150) NOT NULL,                # Name of the cat
-  owner           VARCHAR(150) NOT NULL,                # Owner of the cat
-  birth           DATE NOT NULL,                        # Birthday of the cat
-  PRIMARY KEY     (id)                                  # Make the id the primary key
-);
+De quantas maneiras diferentes é possível distribuir os números na tabela 4x4 mantendo a soma 28?','Distribuir os algarismos 2, 5, 6, 8 e 9 na tabela 4x4, de modo a manter a soma 28 no quadrado, isto é, a soma das linhas, das colunas e das diagonais seja sempre 28.','Interno','Primario','Aritmética','Tabuleiro','Pequeno');
