@@ -10,7 +10,7 @@ var pool  =    mysql.createPool({
   connectionLimit : 100, //important
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : 'q1w2e3r4',
   database : 'dbmesaj',
   debug    :  false
 });
@@ -31,9 +31,22 @@ var server = app.listen(portNumber,function(){
 });
 var router = express.Router();
 
+var ambiente = require('./routes/ambiente');
+app.use('/ambiente', ambiente);
+
+var materia = require('./routes/materia');
+app.use('/materia', materia);
+
+var classificacao = require('./routes/classificacao');
+app.use('/classificacao', classificacao);
+
+var tipo = require('./routes/tipo');
+app.use('/tipo', tipo);
+
+var porte = require('./routes/porte');
+app.use('/porte', porte);
+
 app.get('*', function(req, res) {
   res.sendfile('./ui/views/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 });
 
-var movies = require('./routes/movies');
-app.use('/movies', movies);
