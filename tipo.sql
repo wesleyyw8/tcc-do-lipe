@@ -1,0 +1,45 @@
+--------------------------------------------------------
+--  Arquivo criado - Quinta-feira-Novembro-17-2016   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table TIPO
+--------------------------------------------------------
+
+  CREATE TABLE "SYSTEM"."TIPO" 
+   (	"ID_TIPO" NUMBER(*,0), 
+	"NOME_TIPO" VARCHAR2(20 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+REM INSERTING into SYSTEM.TIPO
+SET DEFINE OFF;
+Insert into SYSTEM.TIPO (ID_TIPO,NOME_TIPO) values ('1','Tabuleiro');
+Insert into SYSTEM.TIPO (ID_TIPO,NOME_TIPO) values ('2','Cartas');
+Insert into SYSTEM.TIPO (ID_TIPO,NOME_TIPO) values ('3','Social');
+Insert into SYSTEM.TIPO (ID_TIPO,NOME_TIPO) values ('4','Pega Bandeira');
+Insert into SYSTEM.TIPO (ID_TIPO,NOME_TIPO) values ('5','Monge');
+--------------------------------------------------------
+--  DDL for Index TIPO_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYSTEM"."TIPO_PK" ON "SYSTEM"."TIPO" ("ID_TIPO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  Constraints for Table TIPO
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."TIPO" ADD CONSTRAINT "TIPO_PK" PRIMARY KEY ("ID_TIPO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "SYSTEM"."TIPO" MODIFY ("NOME_TIPO" NOT NULL ENABLE);
+  ALTER TABLE "SYSTEM"."TIPO" MODIFY ("ID_TIPO" NOT NULL ENABLE);
