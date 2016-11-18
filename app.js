@@ -3,6 +3,7 @@ var app = express();
 var mysql = require("mysql");
 var portNumber = 3001;
 
+app.use(express.static(__dirname + '/ui/views')); 
 app.use(express.static(__dirname + '/ui')); 
 
 var pool  =    mysql.createPool({
