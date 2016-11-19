@@ -1,11 +1,8 @@
---------------------------------------------------------
---  Arquivo criado - Quinta-feira-Novembro-17-2016   
---------------------------------------------------------
---------------------------------------------------------
---  DDL for Table AMBIENTE
---------------------------------------------------------
+DROP DATABASE dbmesaj;
+CREATE DATABASE dbmesaj;
+USE dbmesaj;
 
-  CREATE TABLE AMBIENTE 
+CREATE TABLE AMBIENTE 
    (	
       ID_AMB INT unsigned NOT NULL AUTO_INCREMENT, 
 	    NOME_AMB VARCHAR (150) NOT NULL,
