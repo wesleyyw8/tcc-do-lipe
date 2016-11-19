@@ -1,2 +1,4 @@
 node_modules
 ui/views/bower_components
+.DS_Store
+ui/.DS_Store
