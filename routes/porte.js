@@ -9,7 +9,7 @@ router.route('/')
       con.query(query,function(err,rows){
         if(err) throw err;
         console.log('Data received from Db:\n');
-        response.json({"porte" : rows});
+        response.json({"data" : rows});
       });
     });
   });
