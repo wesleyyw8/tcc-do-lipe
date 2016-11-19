@@ -43,8 +43,11 @@ app.use(baseUrl+'tipo', tipo);
 var porte = require('./routes/porte');
 app.use(baseUrl+'porte', porte);
 
-var porte = require('./routes/buscar');
-app.use(baseUrl+'buscar', porte);
+var buscar = require('./routes/buscar');
+app.use(baseUrl+'buscar', buscar);
+
+var resultado = require('./routes/resultado');
+app.use(baseUrl+'resultado', resultado);
 
 app.use(express.static(__dirname + '/ui'));
 app.get('*', function(req, res) {
