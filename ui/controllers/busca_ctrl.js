@@ -6,7 +6,6 @@ routeParams,location,dataService,buscaService){
     location.path('/');
   else{
     $scope.buscas = buscaService.busca.busca;
-    console.log($scope.buscas);
   }
   $scope.goTo = function(name){
     location.path('/atividade/'+name);
