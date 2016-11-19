@@ -43,6 +43,9 @@ app.use(baseUrl+'tipo', tipo);
 var porte = require('./routes/porte');
 app.use(baseUrl+'porte', porte);
 
+var porte = require('./routes/buscar');
+app.use(baseUrl+'buscar', porte);
+
 app.use(express.static(__dirname + '/ui'));
 app.get('*', function(req, res) {
   res.sendfile('./ui/views/index.html'); // load the single view file (angular will handle the page changes on the front-end)
