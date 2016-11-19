@@ -11,13 +11,13 @@ router.route('/:mat/:classe/:tipo/:amb/:porte')
 
       console.log(query);
       if (request.params.classe != 'null')
-        query += " CLASS = '"+request.params.classe+ "'";
+        query += " and CLASS = '"+request.params.classe+ "'";
       if (request.params.tipo != 'null')
-        query += " TIPO = '"+request.params.tipo+ "'";
+        query += " and TIPO = '"+request.params.tipo+ "'";
       if (request.params.amb != 'null')
-        query += " AMB = '"+request.params.amb+ "'";
+        query += " and AMB = '"+request.params.amb+ "'";
       if (request.params.porte != 'null')
-        query += " PORTE= '"+request.params.porte+ "'";
+        query += " and PORTE= '"+request.params.porte+ "'";
 
       //WHERE MAT = 'Aritmética' and CLASS= 'Primario' and TIPO = 'Tabuleiro' and AMB = 'Interno' and porte= 'Pequeno';
       con.query(query,function(err,rows){
