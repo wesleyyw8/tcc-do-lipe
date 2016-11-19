@@ -5,7 +5,7 @@ router.route('/')
   .get(function(request,response){
     getConnection(function(error, con){
       if(error) throw error;
-      var query = "SELECT NOME_AMB FROM AMBIENTE";
+      var query = "SELECT * FROM AMBIENTE";
       con.query(query,function(err,rows){
         if(err) throw err;
         console.log('Data received from Db:\n');
