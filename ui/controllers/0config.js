@@ -10,6 +10,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
       templateUrl: '../views/busca.html',
       controller: 'BuscaController'
     }).
+    when('/atividade/:atividadeName', {
+      templateUrl: '../views/atividade.html',
+      controller: 'AtividadeController'
+    }).
     otherwise({
       redirectTo: '/principal'
     });
@@ -25,7 +29,8 @@ app.factory('Config', [function() {
       tipo: "/tipo",
       ambiente: "/ambiente",
       porte: "/porte",
-      buscar: "/buscar/"
+      buscar: "/buscar/",
+      resultado: "/resultado/"
     }
   };
 }]);

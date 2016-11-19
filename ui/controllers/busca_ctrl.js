@@ -4,6 +4,11 @@ routeParams,location,dataService,buscaService){
 
   if (!buscaService.busca)
     location.path('/');
-  $scope.buscas = buscaService.busca.busca;
-  console.log($scope.buscas);
+  else{
+    $scope.buscas = buscaService.busca.busca;
+    console.log($scope.buscas);
+  }
+  $scope.goTo = function(name){
+    location.path('/atividade/'+name);
+  }
 }]);

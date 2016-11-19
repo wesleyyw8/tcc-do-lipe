@@ -4,7 +4,8 @@ app.service('dataService', ["$q", "$http", "Config", function ($q, $http, Config
       getClassificacao: getClassificacao,
       getTipo: getTipo,
       getPorte: getPorte,
-      getAmbiente: getAmbiente
+      getAmbiente: getAmbiente,
+      getResultado: getResultado
     };
     return service;
     function getMateria(){
@@ -57,5 +58,15 @@ app.service('dataService', ["$q", "$http", "Config", function ($q, $http, Config
       })
       return def.promise;
     }  
+    function getResultado(param){
+      var def = $q.defer();
+      $http.get(Config.base_url + Config.endpoints.resultado+param).success(function(data){
+        def.resolve(data);
+      })
+      .error(function(){
+        def.reject("fail");
+      })
+      return def.promise;
+    }
   }]
 );

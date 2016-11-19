@@ -10,6 +10,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
       templateUrl: '../views/busca.html',
       controller: 'BuscaController'
     }).
+    when('/atividade/:atividadeName', {
+      templateUrl: '../views/atividade.html',
+      controller: 'AtividadeController'
+    }).
     otherwise({
       redirectTo: '/principal'
     });
@@ -25,9 +29,20 @@ app.factory('Config', [function() {
       tipo: "/tipo",
       ambiente: "/ambiente",
       porte: "/porte",
-      buscar: "/buscar/"
+      buscar: "/buscar/",
+      resultado: "/resultado/"
     }
   };
+}]);
+app.controller('AtividadeController',
+['$scope','$routeParams','dataService','buscaService', function($scope,
+routeParams,dataService,buscaService){
+  $scope.atividadeName = routeParams.atividadeName.trim();
+  (function loadData(){
+    dataService.getResultado($scope.atividadeName).then(function(data){
+      $scope.resultado = data.resultado;
+    })
+  })();
 }]);
 app.controller('BuscaController',
 ['$scope','$http','$routeParams','$location','dataService','buscaService', function($scope,$http,
@@ -35,8 +50,13 @@ routeParams,location,dataService,buscaService){
 
   if (!buscaService.busca)
     location.path('/');
-  $scope.buscas = buscaService.busca.busca;
-  console.log($scope.buscas);
+  else{
+    $scope.buscas = buscaService.busca.busca;
+    console.log($scope.buscas);
+  }
+  $scope.goTo = function(name){
+    location.path('/atividade/'+name);
+  }
 }]);
 app.service('buscaService', ["$q", "$http", "Config", function ($q, $http, Config) {
     var service = {
@@ -62,7 +82,8 @@ app.service('dataService', ["$q", "$http", "Config", function ($q, $http, Config
       getClassificacao: getClassificacao,
       getTipo: getTipo,
       getPorte: getPorte,
-      getAmbiente: getAmbiente
+      getAmbiente: getAmbiente,
+      getResultado: getResultado
     };
     return service;
     function getMateria(){
@@ -115,8 +136,24 @@ app.service('dataService', ["$q", "$http", "Config", function ($q, $http, Config
       })
       return def.promise;
     }  
+    function getResultado(param){
+      var def = $q.defer();
+      $http.get(Config.base_url + Config.endpoints.resultado+param).success(function(data){
+        def.resolve(data);
+      })
+      .error(function(){
+        def.reject("fail");
+      })
+      return def.promise;
+    }
   }]
 );
+app.controller('NavBarController',
+['$scope','$window', function($scope,window){
+  $scope.imgClick = function(){
+    window.history.back();
+  }
+}]);
 app.controller('PrincipalController',
 ['$scope','$location','dataService','buscaService', function($scope,location,dataService,buscaService){
   (function loadSelects(){

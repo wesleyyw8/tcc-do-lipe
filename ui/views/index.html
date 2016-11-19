@@ -6,8 +6,9 @@
   <link rel="stylesheet" type="text/css" href="../style/main.css">
 </head>
 <body ng-app="tcclipe">
-  <div class="tcc">
-    <img src="../img/logotipo.png" alt="Smiley face" height="200" width="200" class="logotipo">
+  <div class="tcc" ng-controller="NavBarController">
+    <img src="../img/logotipo.png" alt="Smiley face" height="200" width="200" class="logotipo" 
+    ng-click="imgClick()">
     <div class="page-content">
       <div ng-view></div>
     </div>

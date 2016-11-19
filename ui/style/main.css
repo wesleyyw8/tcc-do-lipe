@@ -9,6 +9,7 @@
   position: absolute;
   left: 0;
   top: 0;
+  cursor: pointer;
 }
 .imgtext{
   font-weight: bold;
@@ -24,4 +25,8 @@
 }
 .marginbottom15{
   margin-bottom: 15px;
+}
+.link{
+  color: blue;
+  cursor: pointer;
 }
