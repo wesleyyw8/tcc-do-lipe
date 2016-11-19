@@ -8,9 +8,10 @@ app.use(express.static(__dirname + '/ui'));
 
 var pool  =    mysql.createPool({
   connectionLimit : 100, //important
-  host     : 'localhost',
-  user     : 'root',
-  password : 'q1w2e3r4',
+  host     : '127.0.0.1',
+  port     : 33060,
+  user     : 'homestead',
+  password : 'secret',
   database : 'dbmesaj',
   debug    :  false
 });
@@ -47,8 +48,9 @@ var porte = require('./routes/buscar');
 app.use(baseUrl+'buscar', porte);
 
 app.use(express.static(__dirname + '/ui'));
+
 app.get('*', function(req, res) {
-  res.sendfile('./ui/views/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+  res.sendfile('./ui/views/index.html');
 });
 
 app.listen(portNumber, function(){

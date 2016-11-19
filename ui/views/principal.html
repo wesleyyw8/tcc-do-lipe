@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 col-sm-offset-6 col text-left imgtext">
+      Administrar Dados
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-4 col">
+      *Assunto
+    </div>
+    <div class="col-sm-5 col">
+      <select class="assunto">
+        <option>Selecione</option>
+        <option ng-repeat="item in dropdownlists.materias"> 
+          {{item.value}}
+        </option>
+      </select>
+    </div>  
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-4 col">
+      Classificação de ensino
+    </div>
+    <div class="col-sm-5 col">
+      <select class="classificacaoEnsino">
+        <option>Selecione</option>
+        <option ng-repeat="item in dropdownlists.classificacoes"> 
+          {{item.value}}
+        </option>
+      </select>
+    </div>  
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-4 col">
+      Tipo
+    </div>
+    <div class="col-sm-5 col">
+      <select class="tipo">
+        <option>Selecione</option>
+        <option ng-repeat="item in dropdownlists.tipos"> 
+          {{item.value}}
+        </option>
+      </select>
+    </div>  
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-4 col">
+      Ambiente
+    </div>
+    <div class="col-sm-5 col">
+      <select class="ambiente">
+        <option>Selecione</option>
+        <option ng-repeat="item in dropdownlists.ambientes"> 
+          {{item.value}}
+        </option>
+      </select>
+
+    </div>  
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-4 col">
+      Porte
+    </div>
+    <div class="col-sm-5 col">
+      <select class="porte">
+        <option>Selecione</option>
+        <option ng-repeat="item in dropdownlists.portes"> 
+          {{item.value}}
+        </option>
+      </select>      
+    </div>  
+  </div>
+
+  <div class="row margin-top-10">
+    <div class="col-sm-2 col-sm-offset-6 btnContainer">
+      <button class="btn btn-primary" type="submit" ng-click="busca()">Busca brincadeira</button>
+    </div>
+  </div>
+</div>
