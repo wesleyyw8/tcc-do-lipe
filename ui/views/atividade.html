@@ -1,13 +1,18 @@
 <div class="busca">
   <div class="container">
     <div class="row">
-      <div class="col-sm-5 col-sm-offset-6 col text-left imgtext">
+      <div class="col-sm-5 col-sm-offset-3 col text-center imgtext">
         {{atividadeName}}
       </div>
     </div>
 
     <div class="row" ng-repeat="item in resultado">
       <div class="col-sm-5 col-sm-offset-3 text-left">
+        <div class="row">
+          <div class="col-sm-12">
+            Autor: {{item.AUTOR_BRINC}}
+          </div>
+        </div>
         <div class="row">
           <div class="col-sm-12">
             Assunto: {{item.MAT}}
@@ -43,6 +48,9 @@
             Aplicação: {{item.APLICACAO_BRINC}}
           </div>
         </div>
+      </div>
+      <div class="col-sm-4">
+        <img src="{{'../img/'+item.IMAGEM_BRINC}}">
       </div>
     </div>
   </div>
