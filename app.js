@@ -2,14 +2,8 @@ var express = require('express');
 var app = express();
 var mysql = require("mysql");
 var bodyParser = require('body-parser');
-var multer = require('multer');
+var formidable = require('formidable');
 var portNumber = 3001;
-app.use(bodyParser.json());
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/ui/views')); 
 app.use(express.static(__dirname + '/ui')); 
@@ -58,8 +52,22 @@ app.use(baseUrl+'buscar', buscar);
 var resultado = require('./routes/resultado');
 app.use(baseUrl+'resultado', resultado);
 
-var resultado = require('./routes/brincadeira');
-app.use(baseUrl+'brincadeira', resultado);
+app.post('/endpoints/brincadeira/create', function (req, res, next) {
+  
+  var form = new formidable.IncomingForm();
+  form.uploadDir = __dirname + '/upload';
+
+  form.on('fileBegin', function(field, file) {
+    //rename the incoming file to the file's name
+    file.path = form.uploadDir + "/" + file.name;
+    console.log(file.name);
+  })
+  .on('progress', function(bytesReceived, bytesExpected) {
+    var percent = (bytesReceived / bytesExpected * 100) | 0;
+    process.stdout.write('Uploading: %' + percent + '\r');
+  });
+  form.parse(req);
+});
 
 app.use(express.static(__dirname + '/ui'));
 

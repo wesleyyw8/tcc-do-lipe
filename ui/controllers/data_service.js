@@ -10,11 +10,15 @@ app.service('dataService', ["$q", "$http", "Config", function ($q, $http, Config
     };
     return service;
     function insertBrincadeira(data){
-      console.log(data);
+      var fd = new FormData();
+
+      fd.append('teste', data.img);
+      fd.append('lala', 'wesss');
+
       var def = $q.defer();
-      $http.post(Config.base_url + Config.endpoints.criarBrincadeira, data, {
-          transformRequest: angular.identity,
-          headers: {'Content-Type': undefined}
+      $http.post(Config.base_url + Config.endpoints.criarBrincadeira, fd, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
         }).success(function(data){
         def.resolve(data);
       })
