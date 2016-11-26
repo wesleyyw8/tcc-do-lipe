@@ -1,4 +1,4 @@
-var app = angular.module('tcclipe',['ngRoute']);
+var app = angular.module('tcclipe',['ngRoute','file-model']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
   $routeProvider.
@@ -13,6 +13,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
     when('/atividade/:atividadeName', {
       templateUrl: '../views/atividade.html',
       controller: 'AtividadeController'
+    }).
+    when('/adicionarBrincadeira', {
+      templateUrl: '../views/adicionar-brincadeira.html',
+      controller: 'AdicionarBrincadeiraController'
     }).
     otherwise({
       redirectTo: '/principal'
@@ -30,7 +34,8 @@ app.factory('Config', [function() {
       ambiente: "/ambiente",
       porte: "/porte",
       buscar: "/buscar/",
-      resultado: "/resultado/"
+      resultado: "/resultado/",
+      criarBrincadeira: "/brincadeira/create"
     }
   };
 }]);

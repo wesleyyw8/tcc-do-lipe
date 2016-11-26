@@ -6,6 +6,17 @@
   <link rel="stylesheet" type="text/css" href="../style/main.css">
 </head>
 <body ng-app="tcclipe">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Filipe Lourenço</a>
+      </div>
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="#">Página inicial</a></li>
+        <li><a href="#/adicionarBrincadeira">Adicionar brincadeira</a></li>
+      </ul>
+    </div>
+  </nav>
   <div class="tcc" ng-controller="NavBarController">
     <img src="../img/logotipo.png" alt="Smiley face" height="200" width="200" class="logotipo" 
     ng-click="imgClick()">
@@ -17,6 +28,7 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src='bower_components/angular-file-model/angular-file-model.js'></script>
   <script src="../application.js"></script>
 </body>
 </html>

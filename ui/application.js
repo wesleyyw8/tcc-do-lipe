@@ -1,4 +1,4 @@
-var app = angular.module('tcclipe',['ngRoute']);
+var app = angular.module('tcclipe',['ngRoute','file-model']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
   $routeProvider.
@@ -13,6 +13,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
     when('/atividade/:atividadeName', {
       templateUrl: '../views/atividade.html',
       controller: 'AtividadeController'
+    }).
+    when('/adicionarBrincadeira', {
+      templateUrl: '../views/adicionar-brincadeira.html',
+      controller: 'AdicionarBrincadeiraController'
     }).
     otherwise({
       redirectTo: '/principal'
@@ -30,9 +34,24 @@ app.factory('Config', [function() {
       ambiente: "/ambiente",
       porte: "/porte",
       buscar: "/buscar/",
-      resultado: "/resultado/"
+      resultado: "/resultado/",
+      criarBrincadeira: "/brincadeira/create"
     }
   };
+}]);
+app.controller('AdicionarBrincadeiraController',
+['$scope','$routeParams','dataService',function($scope,
+routeParams,dataService){
+
+  $scope.criarBrincadeira = function(){
+    var obj = {
+      img : $scope.img,
+      nome: 'wes'
+    }
+    dataService.insertBrincadeira(obj).then(function(){
+      console.log('deu certo!');
+    });
+  }
 }]);
 app.controller('AtividadeController',
 ['$scope','$routeParams','dataService','buscaService', function($scope,
@@ -82,9 +101,24 @@ app.service('dataService', ["$q", "$http", "Config", function ($q, $http, Config
       getTipo: getTipo,
       getPorte: getPorte,
       getAmbiente: getAmbiente,
-      getResultado: getResultado
+      getResultado: getResultado,
+      insertBrincadeira: insertBrincadeira 
     };
     return service;
+    function insertBrincadeira(data){
+      console.log(data);
+      var def = $q.defer();
+      $http.post(Config.base_url + Config.endpoints.criarBrincadeira, data, {
+          transformRequest: angular.identity,
+          headers: {'Content-Type': undefined}
+        }).success(function(data){
+        def.resolve(data);
+      })
+      .error(function(){
+        def.reject("fail");
+      })
+      return def.promise;
+    }
     function getMateria(){
       var def = $q.defer();
       $http.get(Config.base_url + Config.endpoints.materia).success(function(data){

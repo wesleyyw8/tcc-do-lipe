@@ -27,6 +27,8 @@
   },
   "homepage": "https://github.com/wesleyyw8/tcc-do-lipe#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "multer": "^1.2.0",
     "mysql": "^2.12.0"
   }
 }

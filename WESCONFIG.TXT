@@ -7,3 +7,5 @@ var pool  =    mysql.createPool({
     database : 'dbmesaj',
     debug    :  false
 });
+
+

@@ -5,9 +5,24 @@ app.service('dataService', ["$q", "$http", "Config", function ($q, $http, Config
       getTipo: getTipo,
       getPorte: getPorte,
       getAmbiente: getAmbiente,
-      getResultado: getResultado
+      getResultado: getResultado,
+      insertBrincadeira: insertBrincadeira 
     };
     return service;
+    function insertBrincadeira(data){
+      console.log(data);
+      var def = $q.defer();
+      $http.post(Config.base_url + Config.endpoints.criarBrincadeira, data, {
+          transformRequest: angular.identity,
+          headers: {'Content-Type': undefined}
+        }).success(function(data){
+        def.resolve(data);
+      })
+      .error(function(){
+        def.reject("fail");
+      })
+      return def.promise;
+    }
     function getMateria(){
       var def = $q.defer();
       $http.get(Config.base_url + Config.endpoints.materia).success(function(data){

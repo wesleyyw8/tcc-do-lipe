@@ -1,17 +1,25 @@
 var express = require('express');
 var app = express();
 var mysql = require("mysql");
+var bodyParser = require('body-parser');
+var multer = require('multer');
 var portNumber = 3001;
-
+app.use(bodyParser.json());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+app.use(bodyParser.json());
 app.use(express.static(__dirname + '/ui/views')); 
 app.use(express.static(__dirname + '/ui')); 
 
 var pool  =    mysql.createPool({
   connectionLimit : 100, //important
   host     : 'localhost',
-//  port     : 33060,
-  user     : 'root',
-  password : 'q1w2e3r4',
+  port     : 33060,
+  user     : 'homestead',
+  password : 'secret',
   database : 'dbmesaj',
   debug    :  false
 });
@@ -49,6 +57,9 @@ app.use(baseUrl+'buscar', buscar);
 
 var resultado = require('./routes/resultado');
 app.use(baseUrl+'resultado', resultado);
+
+var resultado = require('./routes/brincadeira');
+app.use(baseUrl+'brincadeira', resultado);
 
 app.use(express.static(__dirname + '/ui'));
 
