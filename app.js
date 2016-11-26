@@ -8,10 +8,10 @@ app.use(express.static(__dirname + '/ui'));
 
 var pool  =    mysql.createPool({
   connectionLimit : 100, //important
-  host     : '127.0.0.1',
-  port     : 33060,
-  user     : 'homestead',
-  password : 'secret',
+  host     : 'localhost',
+//  port     : 33060,
+  user     : 'root',
+  password : 'q1w2e3r4',
   database : 'dbmesaj',
   debug    :  false
 });
