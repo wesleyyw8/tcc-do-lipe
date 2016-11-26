@@ -3,7 +3,7 @@ var app = express();
 var mysql = require("mysql");
 var bodyParser = require('body-parser');
 var formidable = require('formidable');
-var util = require('util');
+//var util = require('util');
 var portNumber = 3001;
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/ui/views')); 
@@ -12,9 +12,9 @@ app.use(express.static(__dirname + '/ui'));
 var pool  =    mysql.createPool({
   connectionLimit : 100, //important
   host     : 'localhost',
-  port     : 33060,
-  user     : 'homestead',
-  password : 'secret',
+ // port     :  3301,
+  user     : 'root',
+  password : 'q1w2e3r4',
   database : 'dbmesaj',
   debug    :  false
 });
