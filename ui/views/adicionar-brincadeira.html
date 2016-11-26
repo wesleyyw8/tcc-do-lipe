@@ -9,7 +9,7 @@
       *Assunto
     </div>
     <div class="col-sm-5 ">
-      <input type="text" ng-model="form.assunto">
+      <input type="text" ng-model="assunto">
     </div>  
   </div>
 
@@ -18,7 +18,7 @@
       Classificação de ensino
     </div>
     <div class="col-sm-5 ">
-      <input type="text" ng-model="form.classificacao">
+      <input type="text" ng-model="classificacao">
     </div>  
   </div>
 
@@ -27,7 +27,7 @@
       Tipo
     </div>
     <div class="col-sm-5 ">
-      <input type="text" ng-model="form.tipo">
+      <input type="text" ng-model="tipo">
     </div>  
   </div>
 
@@ -36,7 +36,7 @@
       Ambiente
     </div>
     <div class="col-sm-5 ">
-      <input type="text" ng-model="form.ambiente">
+      <input type="text" ng-model="ambiente">
     </div>  
   </div>
 
@@ -45,10 +45,37 @@
       Porte
     </div>
     <div class="col-sm-5 ">
-      <input type="text" ng-model="form.porte">
+      <input type="text" ng-model="porte">
     </div>  
   </div>
 
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-4 ">
+      Autor
+    </div>
+    <div class="col-sm-5 ">
+      <input type="text" ng-model="autor">
+    </div>  
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-4 ">
+      Descrição
+    </div>
+    <div class="col-sm-5 ">
+      <textarea ng-model="$parent.descricao" rows="4" cols="50"></textarea>
+    </div>  
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-4 ">
+      Aplicação
+    </div>
+    <div class="col-sm-5 ">
+      <textarea ng-model="$parent.aplicacao" rows="4" cols="50"></textarea>
+    </div>  
+  </div>
+  <br>
   <div class="row">
     <div class="col-sm-2 col-sm-offset-4 ">
       Foto

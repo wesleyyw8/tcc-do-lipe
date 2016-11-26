@@ -13,7 +13,12 @@ app.service('dataService', ["$q", "$http", "Config", function ($q, $http, Config
       var fd = new FormData();
 
       fd.append('teste', data.img);
-      fd.append('lala', 'wesss');
+      //fd.append('lala', 'wesss');
+      angular.forEach(Object.keys(data),function(val){
+        if (val != "img"){
+          fd.append(val, data[val]);    
+        }
+      });
 
       var def = $q.defer();
       $http.post(Config.base_url + Config.endpoints.criarBrincadeira, fd, {

@@ -46,8 +46,16 @@ routeParams,dataService){
   $scope.criarBrincadeira = function(){
     var obj = {
       img : $scope.img,
-      nome: 'wes'
+      assunto: $scope.assunto || 'assteste',
+      classificacao: $scope.classificacao || 'classteste',
+      tipo: $scope.tipo || 'tiiiteste',
+      ambiente: $scope.ambiente || 'ambteste',
+      porte: $scope.porte || 'porrteste',
+      aplicacao: $scope.aplicacao || 'aplicacaoteste',
+      descricao: $scope.descricao || 'descricaotesteee',
+      autor: $scope.autor || 'autortesteee'
     }
+    console.log(obj.descricao);
     dataService.insertBrincadeira(obj).then(function(){
       console.log('deu certo!');
     });
@@ -109,7 +117,12 @@ app.service('dataService', ["$q", "$http", "Config", function ($q, $http, Config
       var fd = new FormData();
 
       fd.append('teste', data.img);
-      fd.append('lala', 'wesss');
+      //fd.append('lala', 'wesss');
+      angular.forEach(Object.keys(data),function(val){
+        if (val != "img"){
+          fd.append(val, data[val]);    
+        }
+      });
 
       var def = $q.defer();
       $http.post(Config.base_url + Config.endpoints.criarBrincadeira, fd, {
