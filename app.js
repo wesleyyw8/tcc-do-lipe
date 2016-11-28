@@ -67,19 +67,96 @@ app.post('/endpoints/brincadeira/create', function (req, res, next) {
       fileName = file.name;
     })
     .on('end', function() {
-      console.log(fileName);
-      console.log(outerFields);
-      insereOsDados(res,fileName, outerFields);
+      checkAmb(res,fileName, outerFields);
+      checkMateria(res,fileName, outerFields);
+      checkPorte(res,fileName, outerFields);
+      checkClass(res,fileName, outerFields);
+      checkTipo(res,fileName, outerFields);
+      insertBrincadeira(res,fileName, outerFields);
     });
   form.parse(req);
 });
-function insereOsDados(res,fileName,outerFields){
-  //inser into brincadeira values (outerFields.assunto, outerFields.classificacao, outerFields.tipo, fileName)
 
-  res.json({
-    "ok": "ok"
-  })
+function checkAmb(res,fileName,outerFields){
+  getConnection(function(error, con){
+    if(error) throw error;
+    var query = "SELECT * from AMBIENTE WHERE NOME_AMB = '"+outerFields.ambiente+"'";
+    con.query(query,function(err,rows){
+      if(err) throw err;
+      if (rows.length == 0){
+        var query = "INSERT into AMBIENTE (NOME_AMB) values ('"+outerFields.ambiente+"')";
+        con.query(query,function(err,rows){if(err) throw err;});
+      }
+    });
+  });
 }
+
+function checkMateria(res,fileName,outerFields){
+  getConnection(function(error, con){
+    if(error) throw error;
+    var query = "SELECT * from MATERIA WHERE NOME_MATERIA = '"+outerFields.assunto+"'";
+    con.query(query,function(err,rows){
+      if(err) throw err;
+      if (rows.length == 0){
+        var query = "INSERT into MATERIA (NOME_MATERIA) values ('"+outerFields.assunto+"')";
+        con.query(query,function(err,rows){if(err) throw err;});
+      }
+    });
+  });
+}
+
+function checkPorte(res,fileName,outerFields){
+  getConnection(function(error, con){
+    if(error) throw error;
+    var query = "SELECT * from PORTE WHERE NOME_PORTE = '"+outerFields.porte+"'";
+    con.query(query,function(err,rows){
+      if(err) throw err;
+      if (rows.length == 0){
+        var query = "INSERT into PORTE (NOME_PORTE) values ('"+outerFields.porte+"')";
+        con.query(query,function(err,rows){if(err) throw err;});
+      }
+    });
+  });
+}
+
+function checkClass(res,fileName,outerFields){
+  getConnection(function(error, con){
+    if(error) throw error;
+    var query = "SELECT * from CLASSIFICACAO_ETARIA WHERE NOME_CLASS = '"+outerFields.classificacao+"'";
+    con.query(query,function(err,rows){
+      if(err) throw err;
+      if (rows.length == 0){
+        var query = "INSERT into CLASSIFICACAO_ETARIA (NOME_CLASS) values ('"+outerFields.classificacao+"')";
+        con.query(query,function(err,rows){if(err) throw err;});
+      }
+    });
+  });
+}
+
+function checkTipo(res,fileName,outerFields){
+  getConnection(function(error, con){
+    if(error) throw error;
+    var query = "SELECT * from TIPO WHERE NOME_TIPO = '"+outerFields.tipo+"'";
+    con.query(query,function(err,rows){
+      if(err) throw err;
+      if (rows.length == 0){
+         var query = "INSERT into TIPO (NOME_TIPO) values ('"+outerFields.tipo+"')";
+         con.query(query,function(err,rows){if(err) throw err;});
+      }
+    });
+  });
+}
+
+function insertBrincadeira(res,fileName,outerFields){
+  getConnection(function(error, con){
+    if(error) throw error;
+    var query = "Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC, AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('"+outerFields.nome+"','"+outerFields.descricao+"','"+outerFields.aplicacao+"','"+outerFields.autor+"','"+fileName+"','"+outerFields.ambiente+"','"+outerFields.classificacao+"','"+outerFields.assunto+"','"+outerFields.tipo+"','"+outerFields.porte+"')";
+      console.log(query);
+      con.query(query,function(err,rows){if(err) throw err;});
+      });
+    }
+ 
+
 app.use(express.static(__dirname + '/ui'));
 
 app.get('*', function(req, res) {
