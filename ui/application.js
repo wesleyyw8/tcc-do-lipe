@@ -53,7 +53,8 @@ routeParams,dataService){
       porte: $scope.porte || 'porrteste',
       aplicacao: $scope.aplicacao || 'aplicacaoteste',
       descricao: $scope.descricao || 'descricaotesteee',
-      autor: $scope.autor || 'autortesteee'
+      autor: $scope.autor || 'autortesteee',
+      nomeBrincadeira: $scope.nomeBrincadeira || 'nomebrincstesste'
     }
     console.log(obj.descricao);
     dataService.insertBrincadeira(obj).then(function(){
