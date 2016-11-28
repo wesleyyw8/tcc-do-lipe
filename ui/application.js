@@ -58,8 +58,20 @@ routeParams,dataService){
     }
     console.log(obj.descricao);
     dataService.insertBrincadeira(obj).then(function(){
-      console.log('deu certo!');
+      alert('deu certo!');
+      cleanFields();
     });
+  }
+  function cleanFields(){
+    $scope.assunto = "";
+    $scope.classificacao = "";
+    $scope.tipo = "";
+    $scope.ambiente = "";
+    $scope.porte = "";
+    $scope.aplicacao = "";
+    $scope.descricao = "";
+    $scope.autor = "";
+    $scope.nomeBrincadeira = "";
   }
 }]);
 app.controller('AtividadeController',
