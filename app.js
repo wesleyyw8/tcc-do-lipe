@@ -141,7 +141,8 @@ function checkTipo(res,fileName,outerFields){
       if(err) throw err;
       if (rows.length == 0){
          var query = "INSERT into TIPO (NOME_TIPO) values ('"+outerFields.tipo+"')";
-         con.query(query,function(err,rows){if(err) throw err;});
+         con.query(query,function(err,rows){if(err) throw err;}); 
+         res.json({"ok": 'ok'});
       }
     });
   });
@@ -150,7 +151,7 @@ function checkTipo(res,fileName,outerFields){
 function insertBrincadeira(res,fileName,outerFields){
   getConnection(function(error, con){
     if(error) throw error;
-    var query = "Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC, AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('"+outerFields.nome+"','"+outerFields.descricao+"','"+outerFields.aplicacao+"','"+outerFields.autor+"','"+fileName+"','"+outerFields.ambiente+"','"+outerFields.classificacao+"','"+outerFields.assunto+"','"+outerFields.tipo+"','"+outerFields.porte+"')";
+    var query = "Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC, AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('"+outerFields.nomeBrincadeira+"','"+outerFields.descricao+"','"+outerFields.aplicacao+"','"+outerFields.autor+"','"+fileName+"','"+outerFields.ambiente+"','"+outerFields.classificacao+"','"+outerFields.assunto+"','"+outerFields.tipo+"','"+outerFields.porte+"')";
       console.log(query);
       con.query(query,function(err,rows){if(err) throw err;});
       });
