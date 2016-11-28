@@ -70,6 +70,8 @@ routeParams,dataService){
     $scope.porte = "";
     $scope.aplicacao = "";
     $scope.descricao = "";
+    angular.element("#descricao").val('');
+    angular.element("#aplicacao").val('');
     $scope.autor = "";
     $scope.nomeBrincadeira = "";
   }
