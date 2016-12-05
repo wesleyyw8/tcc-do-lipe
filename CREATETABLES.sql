@@ -12,8 +12,7 @@ CREATE TABLE AMBIENTE
 
 Insert into AMBIENTE (NOME_AMB) values ('Interno');
 Insert into AMBIENTE (NOME_AMB) values ('Externo');
-Insert into AMBIENTE (NOME_AMB) values ('HÌbrido');
-Insert into AMBIENTE (NOME_AMB) values ('Aqu·tico');
+Insert into AMBIENTE (NOME_AMB) values ('H√≠brido');
 
 
 CREATE TABLE CLASSIFICACAO_ETARIA
@@ -26,7 +25,7 @@ CREATE TABLE CLASSIFICACAO_ETARIA
 
 Insert into CLASSIFICACAO_ETARIA (NOME_CLASS) values ('Primario');
 Insert into CLASSIFICACAO_ETARIA (NOME_CLASS) values ('Fundamental');
-Insert into CLASSIFICACAO_ETARIA (NOME_CLASS) values ('MÈdio');
+Insert into CLASSIFICACAO_ETARIA (NOME_CLASS) values ('M√©dio');
 
 
 CREATE TABLE MATERIA 
@@ -38,14 +37,13 @@ CREATE TABLE MATERIA
    ); 
 
 Insert into MATERIA (NOME_MATERIA) values ('Geometria');
-Insert into MATERIA (NOME_MATERIA) values ('AritmÈtica');
-Insert into MATERIA (NOME_MATERIA) values ('FraÁıes');
+Insert into MATERIA (NOME_MATERIA) values ('Aritm√©tica');
+Insert into MATERIA (NOME_MATERIA) values ('Fra√ß√µes');
 Insert into MATERIA (NOME_MATERIA) values ('Conjuntos');
-Insert into MATERIA (NOME_MATERIA) values ('¡lgebra');
-Insert into MATERIA (NOME_MATERIA) values ('FunÁıes');
-Insert into MATERIA (NOME_MATERIA) values ('EquaÁıes');
-Insert into MATERIA (NOME_MATERIA) values ('PotÍncia');
-Insert into MATERIA (NOME_MATERIA) values ('Raciocinio LÛgico');
+Insert into MATERIA (NOME_MATERIA) values ('√Ålgebra');
+Insert into MATERIA (NOME_MATERIA) values ('Fun√ß√µes');
+Insert into MATERIA (NOME_MATERIA) values ('Equa√ß√µes');
+Insert into MATERIA (NOME_MATERIA) values ('Pot√™ncia');
 
 CREATE TABLE PORTE
    (  
@@ -55,7 +53,7 @@ CREATE TABLE PORTE
     PRIMARY KEY (ID_PORTE)
    ) ;
 Insert into PORTE (NOME_PORTE) values ('Pequeno');
-Insert into PORTE (NOME_PORTE) values ('MÈdio');
+Insert into PORTE (NOME_PORTE) values ('M√©dio');
 Insert into PORTE (NOME_PORTE) values ('Grande');
 Insert into PORTE (NOME_PORTE) values ('Indiferente');
 
@@ -69,9 +67,6 @@ CREATE TABLE TIPO
 
 Insert into TIPO (NOME_TIPO) values ('Tabuleiro');
 Insert into TIPO (NOME_TIPO) values ('Cartas');
-Insert into TIPO (NOME_TIPO) values ('Social');
-Insert into TIPO (NOME_TIPO) values ('Pega Bandeira');
-Insert into TIPO (NOME_TIPO) values ('Caos');
 
 CREATE TABLE BRINCADEIRA
    (  
@@ -98,111 +93,92 @@ Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGE
 Molduras A e B
 Placas transparentes vermelhas e azuis
 Envelopes contendo os desafios
-Papel e l·pis
+Papel e l√°pis
 Regras:
-Um representante do time I sorteia um envelope, lÍ o desafio, e mostra a carta ao time oposto (II);
+Um representante do time I sorteia um envelope, l√™ o desafio, e mostra a carta ao time oposto (II);
 Os integrantes do time II representam os intervalos A e B nas respectivas molduras, utilizando as placas vermelhas para o intervalo A, e as azuis para o intervalo B;
-Colocando uma placa sobre a outra, verifica-se a operaÁ„o do desafio de acordo com as cores:
-A ñ B: somente a(s) ·rea(s) apenas em vermelho deve(m) ser considerada(s)
-B ñ A: somente a(s) ·rea(s) apenas em azul deve(m) ser considerada(s)
-A U B: toda a regi„o colorida deve ser considerada (vermelho, azul e vermelho sobre azul)
-A n B: apenas a ·rea coberta por ambas as placas vermelha e azul deve ser considerada. 
-Os integrantes do time II devem ent„o escrever o intervalo resposta da operaÁ„o, observando no cart„o desafio os limites do intervalo, e discutindo se devem ser abertos ou fechados;
-Os integrantes do time oposto abrem o cart„o desafio e verificam a resposta;
-Anota-se os pontos e os times invertem os papÈis.
-PontuaÁ„o
+Colocando uma placa sobre a outra, verifica-se a opera√ß√£o do desafio de acordo com as cores:
+A ‚Äì B: somente a(s) √°rea(s) apenas em vermelho deve(m) ser considerada(s)
+B ‚Äì A: somente a(s) √°rea(s) apenas em azul deve(m) ser considerada(s)
+A U B: toda a regi√£o colorida deve ser considerada (vermelho, azul e vermelho sobre azul)
+A n B: apenas a √°rea coberta por ambas as placas vermelha e azul deve ser considerada. 
+Os integrantes do time II devem ent√£o escrever o intervalo resposta da opera√ß√£o, observando no cart√£o desafio os limites do intervalo, e discutindo se devem ser abertos ou fechados;
+Os integrantes do time oposto abrem o cart√£o desafio e verificam a resposta;
+Anota-se os pontos e os times invertem os pap√©is.
+Pontua√ß√£o
 1 ponto para cada intervalo representado corretamente (A e B)
-3 pontos para resposta correta final da operaÁ„o (idÍntica ‡ apresentada no cart„o)
-Vence o time com mais pontos quando todos os desafios tiverem sido abertos.','Promover maior assimilaÁ„o da representaÁ„o de intervalos reais e operaÁıes com os mesmos por meio de atividade l˙dica.','Ana Clara Mathias e Carolline Oliveira','Jogo_dos_intervalos.png','Interno','MÈdio','Conjuntos','Tabuleiro','Indiferente');
-Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Hex·gono AlgÈbrico','Materiais: Um tabuleiro, dados numerados com faces (-2; -1; 0; 1; 2; 3), marcadores.
+3 pontos para resposta correta final da opera√ß√£o (id√™ntica √† apresentada no cart√£o)
+Vence o time com mais pontos quando todos os desafios tiverem sido abertos.','Promover maior assimila√ß√£o da representa√ß√£o de intervalos reais e opera√ß√µes com os mesmos por meio de atividade l√∫dica.','Ana Clara Mathias e Carolline Oliveira','Jogo_dos_intervalos.png','Interno','M√©dio','Conjuntos','Tabuleiro','Indiferente');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Hex√°gono Alg√©brico','Materiais: Um tabuleiro, dados numerados com faces (-2; -1; 0; 1; 2; 3), marcadores.
 
-1. Os jogadores decidem quem inicia o jogo (sugest„o: par ou Ìmpar). Cada jogador lanÁa o dado na sua vez, em seguida substitui, na primeira express„o algÈbrica do jogo que est· na casa INICIO, o n˙mero que saiu no dado. AvanÁa tantas casas quanto for o valor calculado. Caso o resultado da operaÁ„o seja zero, permanece na mesma casa.
-2. Se com o resultado o marcador cair na casa vazia (sem express„o), o jogador dever· colocar seu marcador na casa anterior (onde contÈm uma express„o) e l· permanecer· atÈ a prÛxima jogada.
-3. A partir da segunda rodada, o jogador dever· substituir o valor do dado na express„o da casa onde seu marcador se encontra. Sendo o resultado positivo, o jogador dever· avanÁar ‡ quantidade de casas correspondente ao resultado da express„o. Sendo negativo, o jogador dever· voltar a quantidade de casas tambÈm correspondente ao resultado da express„o.
-4. O ganhador ser· o jogador que primeiro completar uma volta no tabuleiro. Para ganhar o jogo, È necess·rio tirar um n˙mero maior ou exato de casas para atingir o FIM do percurso.
-','Desenvolver habilidades envolvendo expressıes algÈbricas e n˙meros inteiros.','David Ferraz','Hexagono_Algebrico.png','Interno','Fundamental','¡lgebra','Tabuleiro','Pequeno');
-Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Batalha Naval de ¬ngulos','Este È um jogo para ser realizado em duplas, semelhante ao jogo batalha naval, no qual os alunos devem estimar as medidas dos ‚ngulos para localizar um ponto.
-Cada jogador recebe um tabuleiro no qual deve marcar 12 embarcaÁıes que
+1. Os jogadores decidem quem inicia o jogo (sugest√£o: par ou √≠mpar). Cada jogador lan√ßa o dado na sua vez, em seguida substitui, na primeira express√£o alg√©brica do jogo que est√° na casa INICIO, o n√∫mero que saiu no dado. Avan√ßa tantas casas quanto for o valor calculado. Caso o resultado da opera√ß√£o seja zero, permanece na mesma casa.
+2. Se com o resultado o marcador cair na casa vazia (sem express√£o), o jogador dever√° colocar seu marcador na casa anterior (onde cont√©m uma express√£o) e l√° permanecer√° at√© a pr√≥xima jogada.
+3. A partir da segunda rodada, o jogador dever√° substituir o valor do dado na express√£o da casa onde seu marcador se encontra. Sendo o resultado positivo, o jogador dever√° avan√ßar √† quantidade de casas correspondente ao resultado da express√£o. Sendo negativo, o jogador dever√° voltar a quantidade de casas tamb√©m correspondente ao resultado da express√£o.
+4. O ganhador ser√° o jogador que primeiro completar uma volta no tabuleiro. Para ganhar o jogo, √© necess√°rio tirar um n√∫mero maior ou exato de casas para atingir o FIM do percurso.
+','Desenvolver habilidades envolvendo express√µes alg√©bricas e n√∫meros inteiros.','David Ferraz','Hexagono_Algebrico.png','Interno','Fundamental','√Ålgebra','Tabuleiro','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Batalha Naval de √Çngulos','Este √© um jogo para ser realizado em duplas, semelhante ao jogo batalha naval, no qual os alunos devem estimar as medidas dos √¢ngulos para localizar um ponto.
+Cada jogador recebe um tabuleiro no qual deve marcar 12 embarca√ß√µes que
  correspondem a 12 pontos.
-O tabuleiro com as marcaÁıes n„o pode ser visto pelo advers·rio.
-Portanto, (3,0∫) e (3,360∫) correspondem ao mesmo ponto no tabuleiro. Se julgarem necess·rio, os jogadores poder„o usar o transferidor.
-O jogador deve informar seu advers·rio sobre o ponto atingido, dizendo ìAfundouî, semo tiro acertou uma embarcaÁ„o, e ì¡guaî, se o tiro n„o acertou. O advers·rio ent„o deve fazer uma marcaÁ„o no ëCampo Advers·rioí registrando se o ponto questionado foi um acerto ou ·gua.
-O vencedor È o primeiro que afundar toda a frota do advers·rio.','Relacionar os conceitos de ‚ngulo e coordenadas do plano, assim como levar o aluno a perceber a ideia de ‚ngulo como abertura, e estimular a estimativa como estratÈgia para que os alunos descubram as medidas dos ‚ngulos.','Carolline Oliveira','Batalha_naval_dos_angulos.png','Interno','Fundamental','Geometria','Tabuleiro','Pequeno');
-Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Velha das FunÁıes','O jogo consiste em 9 cartas num tabuleiro, onde cada carta representa um tipo de funÁ„o ao qual o aluno dever· resolver, estando o resultado correto o ponto fica para si, e uma peÁa, È colocada no tabuleiro; enquanto que, se ele errar, o advers·rio ganha a chance de colocar a sua prÛpria peÁa no tabuleiro. AtÈ que um dos dois complete uma coluna, linha ou diagonal com todas as suas peÁas durante o jogo, obtendo assim, uma velha como no jogo j· conhecido.
-','Podemos definir equaÁ„o como uma sentenÁa matem·tica que possui igualdade entre duas expressıes algÈbricas e uma ou mais vari·veis, ou incÛgnitas (valores desconhecidos) que s„o expressadas por letras. Resolver uma equaÁ„o È encontrar todos os valores possÌveis para a incÛgnita que tornem a igualdade verdadeira.
-Objetivo do Jogo: O jogo tem por objetivo incentivar o aluno a verificar seus conhecimentos com funÁıes, e ao mesmo tempo fazÍ-lo pensar sobre uma estratÈgia para vencer seu advers·rio num jogo da velha comum.','Ingrid Adair de Souza','Velha_das_funcoes.png','Interno','MÈdio','FunÁıes','Tabuleiro','Pequeno');
-Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Quadrado M·gico','Montar um tabuleiro em forma de jogo da velha e recortar numeros que possibilitem a realizaÁ„o da atividade, sugest„o: 3, 5, 4, 9, 9, 8, 7, 2, 1
-Colocar as fichas no tabuleiro de tal forma que a soma das 3 linhas, das 3 colunas e das 2 diagonais seja igual a 15.','O quadrado m·gico È uma atividade de tentativa e erro. N„o È f·cil, È desafiador. O jogo consiste em explorar as possibilidades e coordenar ao mesmo tempo, a soma das linhas, colunas e diagonais.','Lenesson','quadrado_magico.png','Interno','Primario','AritmÈtica','Tabuleiro','Pequeno');
-Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Losango Ìmpar','Tabuleiro em formato de losango
-PeÁas numeradas de 1 a 8
+O tabuleiro com as marca√ß√µes n√£o pode ser visto pelo advers√°rio.
+Portanto, (3,0¬∫) e (3,360¬∫) correspondem ao mesmo ponto no tabuleiro. Se julgarem necess√°rio, os jogadores poder√£o usar o transferidor.
+O jogador deve informar seu advers√°rio sobre o ponto atingido, dizendo ‚ÄúAfundou‚Äù, semo tiro acertou uma embarca√ß√£o, e ‚Äú√Ågua‚Äù, se o tiro n√£o acertou. O advers√°rio ent√£o deve fazer uma marca√ß√£o no ‚ÄòCampo Advers√°rio‚Äô registrando se o ponto questionado foi um acerto ou √°gua.
+O vencedor √© o primeiro que afundar toda a frota do advers√°rio.','Relacionar os conceitos de √¢ngulo e coordenadas do plano, assim como levar o aluno a perceber a ideia de √¢ngulo como abertura, e estimular a estimativa como estrat√©gia para que os alunos descubram as medidas dos √¢ngulos.','Carolline Oliveira','Batalha_naval_dos_angulos.png','Interno','Fundamental','Geometria','Tabuleiro','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Velha das Fun√ß√µes','O jogo consiste em 9 cartas num tabuleiro, onde cada carta representa um tipo de fun√ß√£o ao qual o aluno dever√° resolver, estando o resultado correto o ponto fica para si, e uma pe√ßa, √© colocada no tabuleiro; enquanto que, se ele errar, o advers√°rio ganha a chance de colocar a sua pr√≥pria pe√ßa no tabuleiro. At√© que um dos dois complete uma coluna, linha ou diagonal com todas as suas pe√ßas durante o jogo, obtendo assim, uma velha como no jogo j√° conhecido.
+','Podemos definir equa√ß√£o como uma senten√ßa matem√°tica que possui igualdade entre duas express√µes alg√©bricas e uma ou mais vari√°veis, ou inc√≥gnitas (valores desconhecidos) que s√£o expressadas por letras. Resolver uma equa√ß√£o √© encontrar todos os valores poss√≠veis para a inc√≥gnita que tornem a igualdade verdadeira.
+Objetivo do Jogo: O jogo tem por objetivo incentivar o aluno a verificar seus conhecimentos com fun√ß√µes, e ao mesmo tempo faz√™-lo pensar sobre uma estrat√©gia para vencer seu advers√°rio num jogo da velha comum.','Ingrid Adair de Souza','Velha_das_funcoes.png','Interno','M√©dio','Fun√ß√µes','Tabuleiro','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Quadrado M√°gico','Montar um tabuleiro em forma de jogo da velha e recortar numeros que possibilitem a realiza√ß√£o da atividade, sugest√£o: 3, 5, 4, 9, 9, 8, 7, 2, 1
+Colocar as fichas no tabuleiro de tal forma que a soma das 3 linhas, das 3 colunas e das 2 diagonais seja igual a 15.','O quadrado m√°gico √© uma atividade de tentativa e erro. N√£o √© f√°cil, √© desafiador. O jogo consiste em explorar as possibilidades e coordenar ao mesmo tempo, a soma das linhas, colunas e diagonais.','Lenesson','quadrado_magico.png','Interno','Primario','Aritm√©tica','Tabuleiro','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Losango √≠mpar','Tabuleiro em formato de losango
+Pe√ßas numeradas de 1 a 8
 Regras.
 2 participantes
-Embaralhar as peÁas viradas para baixo
-Empilhar as peÁas ainda viradas para baixo
-Decide quem ir· comeÁar jogando
-O primeiro participante pega a primeira peÁa da pilha e escolhe um tri‚ngulo do tabuleiro para colocar a peÁa
-O prÛximo deve colocar a peÁa em uma das casas adjacentes a peÁa colocada anteriormente de modo a obter soma Ìmpar
-A cada jogada anota-se o n˙mero de pontos obtidos (soma dos n˙meros das duas ˙ltimas casas)
-O jogo acaba quando um dos participantes n„o puder colocar mais peÁas
-Ganha o jogo quem obtiver a maior soma.','Obter um n˙mero Ìmpar atravÈs da soma','Nat·lia Martins','Losango_Impar.png','Interno','Primario','AritmÈtica','Tabuleiro','Pequeno');
-Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('N˙meros e FraÁıes','Regras: O jogo È dividido em rodadas e cada uma delas possui 7 etapas.
-S„o necess·rios dois jogadores. Mas antes de comeÁar È preciso iniciar a preparaÁ„o:
-Cada Jogador embaralha seu prÛprio deck e, em seguida, compra 5 cartas. Feito isso, basta decidir de forma aleatÛria quem comeÁa o jogo e seguir as etapas.
-1™ ETAPA: O primeiro jogador escolhe uma das cartas em sua m„o e a joga, o segundo jogador pode optar por cancelar o efeito da carta jogada, descartando assim de sua m„o uma carta do mesmo tipo da carta jogada e que possua um valor igual ou superior. Caso a carta jogada n„o tenha sido cancelada ela ativa seu efeito.
-2™ ETAPA: O segundo jogador escolhe uma das cartas em sua m„o e a joga, o primeiro jogador pode optar por cancelar a carta jogada (nas mesmas condiÁıes citadas acima).
-Caso a carta n„o seja cancelada ela ativa seu efeito.
-3™ ETAPA: Repete-se a 1™ ETAPA.
-4™ ETAPA: Repete-se a 2™ ETAPA.
-5™ ETAPA: Caso tenham sido utilizadas CARTAS +, nesta rodada, as mesmas devem ser removidas de jogo imediatamente. Em seguida, deve-se descartar as demais cartas nas pilhas de descarte apropriadas.
-6™ ETAPA: Cada jogador compra 7 novas cartas (se possÌvel).
-7™ ETAPA: Se ainda existirem cartas em ambos os decks, inicia-se uma nova rodada. Caso contr·rio, o jogador que possuir mais pontos È o vencedor.
+Embaralhar as pe√ßas viradas para baixo
+Empilhar as pe√ßas ainda viradas para baixo
+Decide quem ir√° come√ßar jogando
+O primeiro participante pega a primeira pe√ßa da pilha e escolhe um tri√¢ngulo do tabuleiro para colocar a pe√ßa
+O pr√≥ximo deve colocar a pe√ßa em uma das casas adjacentes a pe√ßa colocada anteriormente de modo a obter soma √≠mpar
+A cada jogada anota-se o n√∫mero de pontos obtidos (soma dos n√∫meros das duas √∫ltimas casas)
+O jogo acaba quando um dos participantes n√£o puder colocar mais pe√ßas
+Ganha o jogo quem obtiver a maior soma.','Obter um n√∫mero √≠mpar atrav√©s da soma','Nat√°lia Martins','Losango_Impar.png','Interno','Primario','Aritm√©tica','Tabuleiro','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('N√∫meros e Fra√ß√µes','Regras: O jogo √© dividido em rodadas e cada uma delas possui 7 etapas.
+S√£o necess√°rios dois jogadores. Mas antes de come√ßar √© preciso iniciar a prepara√ß√£o:
+Cada Jogador embaralha seu pr√≥prio deck e, em seguida, compra 5 cartas. Feito isso, basta decidir de forma aleat√≥ria quem come√ßa o jogo e seguir as etapas.
+1¬™ ETAPA: O primeiro jogador escolhe uma das cartas em sua m√£o e a joga, o segundo jogador pode optar por cancelar o efeito da carta jogada, descartando assim de sua m√£o uma carta do mesmo tipo da carta jogada e que possua um valor igual ou superior. Caso a carta jogada n√£o tenha sido cancelada ela ativa seu efeito.
+2¬™ ETAPA: O segundo jogador escolhe uma das cartas em sua m√£o e a joga, o primeiro jogador pode optar por cancelar a carta jogada (nas mesmas condi√ß√µes citadas acima).
+Caso a carta n√£o seja cancelada ela ativa seu efeito.
+3¬™ ETAPA: Repete-se a 1¬™ ETAPA.
+4¬™ ETAPA: Repete-se a 2¬™ ETAPA.
+5¬™ ETAPA: Caso tenham sido utilizadas CARTAS +, nesta rodada, as mesmas devem ser removidas de jogo imediatamente. Em seguida, deve-se descartar as demais cartas nas pilhas de descarte apropriadas.
+6¬™ ETAPA: Cada jogador compra 7 novas cartas (se poss√≠vel).
+7¬™ ETAPA: Se ainda existirem cartas em ambos os decks, inicia-se uma nova rodada. Caso contr√°rio, o jogador que possuir mais pontos √© o vencedor.
 REGRA DA SOMA:
-Uma vez por rodada, cada jogador poder· somar duas cartas iguais (no caso das fraÁıes elas dever„o possuir o mesmo denominador), para cancelar uma carta jogada pelo advers·rio.
+Uma vez por rodada, cada jogador poder√° somar duas cartas iguais (no caso das fra√ß√µes elas dever√£o possuir o mesmo denominador), para cancelar uma carta jogada pelo advers√°rio.
 AS CARTAS:
-CARTAS DE FRA«√O: o efeito da carta de fraÁ„o faz com que seu advers·rio tenha de descartar aquela quantidade (fraÁ„o) de cartas de seu deck (sempre arredondando esse
-valor para baixo, caso necess·rio). Para cada carta descartada desta maneira, o jogador que jogou a CARTA DE FRA«√O ganhar· 1 PONTO por carta descartada.
-CARTAS DE PORCENTAGEM: o efeito desta carta faz com que seu advers·rio tenha de descartar aquela quantidade (porcentagem) de cartas de seu deck (sempre arredondando esse valor para baixo, caso necess·rio). Para cada carta descartada desta maneira, o jogador que jogou a CARTA DE PORCENTAGEM ganhar· 2 PONTOS, por carta descartada.
+CARTAS DE FRA√á√ÉO: o efeito da carta de fra√ß√£o faz com que seu advers√°rio tenha de descartar aquela quantidade (fra√ß√£o) de cartas de seu deck (sempre arredondando esse
+valor para baixo, caso necess√°rio). Para cada carta descartada desta maneira, o jogador que jogou a CARTA DE FRA√á√ÉO ganhar√° 1 PONTO por carta descartada.
+CARTAS DE PORCENTAGEM: o efeito desta carta faz com que seu advers√°rio tenha de descartar aquela quantidade (porcentagem) de cartas de seu deck (sempre arredondando esse valor para baixo, caso necess√°rio). Para cada carta descartada desta maneira, o jogador que jogou a CARTA DE PORCENTAGEM ganhar√° 2 PONTOS, por carta descartada.
 CARTAS +: o efeito desta carta faz com que quem a jogou selecione (aleatoriamente) uma quantidade de cartas de sua pilha de descarte iguais ao impresso na carta jogada
-e as coloque no fundo de seu deck (caso n„o haja cartas o suficiente, o jogador dever· retornar tantas quanto possÌvel). Para cada carta retornada desta maneira, o jogador que a jogou a CARTA + ganhar· 3 PONTOS por carta retornada para o deck.','O jogo tem por objetivo fazer com que o aluno aprenda e fixe o conceito de fraÁıes, em uma partida em que dever· utilizar as cartas em sua posse juntamente com uma estratÈgia prÛpria para fazer mais pontos que seu oponente, antes que um dos baralhos acabe.','Rafael Oliveira de Faria','Numeros_e_fracoes.png','Interno','Fundamental','FraÁıes','Cartas','Pequeno');
-Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Dorminhoco Matem·tico','O Regras do Jogo: Divis„o dos alunos em grupos de quatro elementos. Esse È um jogo de cartas no qual primeiramente as cartas s„o embaralhadas e depois s„o divididas entre os participantes. Todos os alunos do grupo receber„o trÍs cartas e um receber· quatro cartas. O aluno que recebeu quatro cartas ser· quem iniciar· o jogo. Atr·s de 61 cada carta tem uma funÁ„o, um zero da funÁ„o e a representaÁ„o de um gr·fico, e uma das cartas tem a palavra ìDorminhocoî. Quem recebe esta carta tem que ficar uma rodada com ela. No momento que os alunos recebem as cartas devem analisar se a funÁ„o, o zero e o gr·fico est„o corretos; se algum estiver errado, quando for sua vez de jogar vocÍ passa esta carta adiante. Quando vocÍ estiver formado o trio correto abaixa as cartas, o ˙ltimo que abaixar perde e È o Dorminhoco.','O jogo Dorminhoco Matem·tico consiste em uma atividade a qual contÈm cartas com funÁıes, zeros da funÁ„o e gr·ficos. O objetivo neste jogo È fazer com que os alunos encontrem o zero da funÁ„o e gr·fico referente a cada funÁ„o dada. Neste jogo vamos trabalhar com os zeros e com gr·ficos envolvendo funÁıes do 1∫ e do 2∫ grau.
-Objetivos: - calcular corretamente os zeros das funÁıes do 1∫ e do 2∫ grau; - reconhecer os gr·ficos das funÁıes.','Rodrigo Evaristo e Lenesson','Dorminhoco.png','Interno','MÈdio','FunÁıes','Cartas','Pequeno');
-Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Soma 28','O(s) jogador(es) devem completar o quadrado utilizando todas as peÁas;
-Cada algarismo sÛ pode surgir uma ˙nica vez no quadrado;
-Cada linha, coluna e diagonal deve totalizar a soma do n˙mero 28;
-Se alguma linha, coluna ou diagonal n„o totalizar a soma do n˙mero 28, o quadrado est· errado e a peÁa deve ser trocada;
+e as coloque no fundo de seu deck (caso n√£o haja cartas o suficiente, o jogador dever√° retornar tantas quanto poss√≠vel). Para cada carta retornada desta maneira, o jogador que a jogou a CARTA + ganhar√° 3 PONTOS por carta retornada para o deck.','O jogo tem por objetivo fazer com que o aluno aprenda e fixe o conceito de fra√ß√µes, em uma partida em que dever√° utilizar as cartas em sua posse juntamente com uma estrat√©gia pr√≥pria para fazer mais pontos que seu oponente, antes que um dos baralhos acabe.','Rafael Oliveira de Faria','Numeros_e_fracoes.png','Interno','Fundamental','Fra√ß√µes','Cartas','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Dorminhoco Matem√°tico','O Regras do Jogo: Divis√£o dos alunos em grupos de quatro elementos. Esse √© um jogo de cartas no qual primeiramente as cartas s√£o embaralhadas e depois s√£o divididas entre os participantes. Todos os alunos do grupo receber√£o tr√™s cartas e um receber√° quatro cartas. O aluno que recebeu quatro cartas ser√° quem iniciar√° o jogo. Atr√°s de 61 cada carta tem uma fun√ß√£o, um zero da fun√ß√£o e a representa√ß√£o de um gr√°fico, e uma das cartas tem a palavra ‚ÄúDorminhoco‚Äù. Quem recebe esta carta tem que ficar uma rodada com ela. No momento que os alunos recebem as cartas devem analisar se a fun√ß√£o, o zero e o gr√°fico est√£o corretos; se algum estiver errado, quando for sua vez de jogar voc√™ passa esta carta adiante. Quando voc√™ estiver formado o trio correto abaixa as cartas, o √∫ltimo que abaixar perde e √© o Dorminhoco.','O jogo Dorminhoco Matem√°tico consiste em uma atividade a qual cont√©m cartas com fun√ß√µes, zeros da fun√ß√£o e gr√°ficos. O objetivo neste jogo √© fazer com que os alunos encontrem o zero da fun√ß√£o e gr√°fico referente a cada fun√ß√£o dada. Neste jogo vamos trabalhar com os zeros e com gr√°ficos envolvendo fun√ß√µes do 1¬∫ e do 2¬∫ grau.
+Objetivos: - calcular corretamente os zeros das fun√ß√µes do 1¬∫ e do 2¬∫ grau; - reconhecer os gr√°ficos das fun√ß√µes.','Rodrigo Evaristo e Lenesson','Dorminhoco.png','Interno','M√©dio','Fun√ß√µes','Cartas','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Soma 28','O(s) jogador(es) devem completar o quadrado utilizando todas as pe√ßas;
+Cada algarismo s√≥ pode surgir uma √∫nica vez no quadrado;
+Cada linha, coluna e diagonal deve totalizar a soma do n√∫mero 28;
+Se alguma linha, coluna ou diagonal n√£o totalizar a soma do n√∫mero 28, o quadrado est√° errado e a pe√ßa deve ser trocada;
 O jogo termina com o preenchimento de todas as dezesseis casas do tabuleiro.
-De quantas maneiras diferentes È possÌvel distribuir os n˙meros na tabela 4x4 mantendo a soma 28?','Distribuir os algarismos 2, 5, 6, 8 e 9 na tabela 4x4, de modo a manter a soma 28 no quadrado, isto È, a soma das linhas, das colunas e das diagonais seja sempre 28.','Rodrigo Evaristo','soma_28.png','Interno','Primario','AritmÈtica','Tabuleiro','Pequeno');
+De quantas maneiras diferentes √© poss√≠vel distribuir os n√∫meros na tabela 4x4 mantendo a soma 28?','Distribuir os algarismos 2, 5, 6, 8 e 9 na tabela 4x4, de modo a manter a soma 28 no quadrado, isto √©, a soma das linhas, das colunas e das diagonais seja sempre 28.','Rodrigo Evaristo','soma_28.png','Interno','Primario','Aritm√©tica','Tabuleiro','Pequeno');
 Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Trimino,','
-O JOGO: Um jogador por vez procurar· entre as suas peÁas uma que combine com um dos lados da peÁa que est· na mesa. 
-O vencedor ser· aquele que completar o hex·gono em menos tempo.
-MATERIAL: 1 caixa e 24 peÁas contendo equaÁıes ou respostas.','OBJETIVOS
-* Reconhecer a representaÁ„o de uma equaÁ„o do 1∫ grau com uma incÛgnita
-* Resolver equaÁıes de 1∫ grau com uma incÛgnita
-* Desenvolver o raciocÌnio lÛgico das equaÁıes
-* Determinar a soluÁ„o e a representaÁ„o de situaÁıes-problemas a partir de equaÁıes','Jeferson Leite da Cunha','Trimino.png','Interno','Fundamental','EquaÁıes','Tabuleiro','Pequeno');
-Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Jogo da MemÛria da PotenciaÁ„o','
-MATERIAL: 36 cartas com expressıes envolvendo potenciaÁ„o (12 cartas com a notaÁ„o de potÍncia, 12 cartas com a expans„o e 12 cartas com os resultados)
+O JOGO: Um jogador por vez procurar√° entre as suas pe√ßas uma que combine com um dos lados da pe√ßa que est√° na mesa. 
+O vencedor ser√° aquele que completar o hex√°gono em menos tempo.
+MATERIAL: 1 caixa e 24 pe√ßas contendo equa√ß√µes ou respostas.','OBJETIVOS
+* Reconhecer a representa√ß√£o de uma equa√ß√£o do 1¬∫ grau com uma inc√≥gnita
+* Resolver equa√ß√µes de 1¬∫ grau com uma inc√≥gnita
+* Desenvolver o racioc√≠nio l√≥gico das equa√ß√µes
+* Determinar a solu√ß√£o e a representa√ß√£o de situa√ß√µes-problemas a partir de equa√ß√µes','Jeferson Leite da Cunha','Trimino.png','Interno','Fundamental','Equa√ß√µes','Tabuleiro','Pequeno');
+Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,IMAGEM_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Jogo da Mem√≥ria da Potencia√ß√£o','
+MATERIAL: 36 cartas com express√µes envolvendo potencia√ß√£o (12 cartas com a nota√ß√£o de pot√™ncia, 12 cartas com a expans√£o e 12 cartas com os resultados)
 Dividir os alunos em duplas ou quartetos;
 As cartas devem ser embaralhadas e colocadas sobre a mesa com as faces escritas voltadas para cima;
-Os jogadores observam as cartas por alguns segundos, tentando identificar Trios de potÍncias. A seguir, as cartas s„o viradas com as faces escritas para baixo.
-O primeiro jogador desvira trÍs cartas. Se elas formarem trio, ele as retira da mesa e joga novamente. Se n„o, volta a vir·-las com as faces escritas para baixo, deixando-as no mesmo lugar na mesa. O jogo continua atÈ que todas as cartas sejam retiradas da mesa.
-Vence o jogador que conseguir o maior n˙mero de trios de cartas.','Formar trios de cartas, sendo uma a notaÁ„o de potÍncia, uma com a expans„o e uma com o resultado.','Rosana Bonilha da Silva','memoria_da_potenciacao.png','Interno','Fundamental','PotÍncia','Tabuleiro','Pequeno');
-Insert into BRINCADEIRA (NOME_BRINC,DESC_BRINC,APLICACAO_BRINC,AUTOR_BRINC,AMB,CLASS,MAT,TIPO,PORTE) values ('Caos da Soma e Produto','Para desenvolver a atividade: 
-19 equaÁıes de segundo grau os valores do produto (c/a) e da soma(-b/a), o n˙mero de equaÁıes fica a critÈrio do professor.
-O professor dever· imprimir papÈis com as equaÁıes e os valores da soma e do produto de cada equaÁ„o, da seguinte maneira: uma impress„o para mostrar ao grupo e duas impressıes para esconder. 
-ExecuÁ„o:
-O professor dever· esconder os papÈis em lugares espalhados de forma aleatÛria sem que os alunos vejam.
-Em seguida deve-se dividir o grupo em equipes, recomenda se que as equipes sejam divididas de forma equilibrada.
-Todas as equipes dever„o receber um papel antes de se dar inÌcio a brincadeira. As equaÁıes devem ser diferentes para cada equipe, neste exemplo nove pra uma e nove pra outra. 
-Exemplo: 
-x≤-5x+6 - entregue a equipe A 
-x≤-4x+3 ñ entregue a equipe B
-Dado o inÌcio a prova os alunos dever„o encontrar o valor da soma e do produto e procurar o papel com a resposta
-A equipe A dever· encontrar o papel com a Soma = -(-5)/1 = 5 e produto = 6/1 = 6;
-A equipe B dever· encontrar o papel com a Soma= -(-4)/1 = 4 e Produto = 3/1 = 3;
-Quando o papel for encontrado toda equipe retorna ao ponto de inÌcio para ganhar uma nova equaÁ„o, para receber o novo papel a equipe deve falar o valor das raÌzes corretamente.
-Equipe A ñ RaÌzes = 2 e 3
-Equipe B ñ RaÌzes = 3 e 1
-Caso o professor queira aplicar alguma outra prova antes de liberar o prÛximo papel como por exemplo... Polichinelo, encontrar um objeto ou buscar algo em algum lugar, poder· utilizar este momento.
-Liberado o prÛximo papel, iniciasse o processo novamente. Caso o professor desejar pode entregar o valor da soma e do produto, para que a equipe encontre a equaÁ„o, lembrando que sempre devem haver duas respostas escondidas para cada pergunta com exceÁ„o da ˙ltima.
-A ˙ltima quest„o deve ser a mesma para as duas equipes, para melhorar a din‚mica pode ser um desafio. A equipe que resolver a equaÁ„o e encontrar primeiro os valores das raÌzes ser· a vencedora.','Uma atividade divertida para ser aplicada em ambiente externo para grandes e mÈdios grupos, visando fixar o mÈtodo de resoluÁ„o de equaÁıes de segundo grau por soma e produto, podendo explorar o mÈtodo de Locicikiano, alÈm de estimular o trabalho em equipe e lideranÁa.','Filipe LourenÁo','Externo','Fundamental','EquaÁıes','Caos','Grande');
+Os jogadores observam as cartas por alguns segundos, tentando identificar Trios de pot√™ncias. A seguir, as cartas s√£o viradas com as faces escritas para baixo.
+O primeiro jogador desvira tr√™s cartas. Se elas formarem trio, ele as retira da mesa e joga novamente. Se n√£o, volta a vir√°-las com as faces escritas para baixo, deixando-as no mesmo lugar na mesa. O jogo continua at√© que todas as cartas sejam retiradas da mesa.
+Vence o jogador que conseguir o maior n√∫mero de trios de cartas.','Formar trios de cartas, sendo uma a nota√ß√£o de pot√™ncia, uma com a expans√£o e uma com o resultado.','Rosana Bonilha da Silva','memoria_da_potenciacao.png','Interno','Fundamental','Pot√™ncia','Tabuleiro','Pequeno');
